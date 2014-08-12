@@ -1,0 +1,14 @@
+<h1> Welcome to Evernote 2.0 </h1>
+
+
+<%= link_to "New Task", new_task_path %>
+
+<% @tasks.each do |t| %>
+	<h3> Heidi Number : <%=	t.id %> </h3>
+	<p> Name : <%=	t.name %> </p>
+	<p> Priority : <%=	t.priority %> </p>
+	<%= link_to "Edit ", edit_task_path(t.id) %>
+	<%= link_to "Show ", task_path(t.id) %>
+	<%= link_to "Delete  ", tasks_path(@task), method: :delete %>
+<% end %>
+

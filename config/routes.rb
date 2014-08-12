@@ -1,10 +1,24 @@
 Rails.application.routes.draw do
 
-root 'welcome#index'
+root "tasks#index"
+
+get "/tasks", to: "tasks#index", as: :tasks
+
+get "/tasks/new", to: "tasks#new", as: :new_task
+post "/tasks", to: "tasks#create"
+
+get "/tasks/:id", to: "tasks#show", as: :task
+
+get "/tasks/:id/edit", to: "tasks#edit", as: :edit_task
+patch "/tasks/:id", to: "tasks#update"
+
+delete "/tasks/:id", to: "tasks#destroy"
+
+
+end
 
 
 
-  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -59,4 +73,4 @@ root 'welcome#index'
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
+
